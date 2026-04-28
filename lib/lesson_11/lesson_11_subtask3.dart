@@ -3,128 +3,87 @@ import 'package:flutter/material.dart';
 class LessonElevenSubTask3 extends StatelessWidget {
   const LessonElevenSubTask3({super.key});
 
-  @override
-  Widget build(BuildContext context) {
-    return const MaterialApp(
-      home: HomeScreen(),
-    );
-  }
-}
 
-class HomeScreen extends StatelessWidget {
-  const HomeScreen({super.key});
+  static const List<Map<String, Color>> items = [
+    {'bkColor': Colors.blue},
+    {'bkColor': Colors.green},
+    {'bkColor': Colors.red},
+  ];
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      // app bar
+      appBar: AppBar(
+        title: const Text('Lesson 11 (HW 7) Task3'),
+        backgroundColor: Colors.blue.shade100,
+      ),
+
       body: Center(
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
 
-            // синій блок
-            Container(
-              width: 300,
-              height: 150,
-              decoration: BoxDecoration(
-                color: Colors.blue,
-                borderRadius: BorderRadius.circular(16),
-              ),
-              child: Padding(
-                padding: const EdgeInsets.all(10),
-                child: Align(
-                  alignment: Alignment.bottomRight,
-                  child: Row(
-                    mainAxisSize: MainAxisSize.min,
-                    children: [
-                      Icon(Icons.star, color: Color(0xFFFFFD71)),
-                      SizedBox(width: 10),
-                      Text(
-                        'Привіт, Flutter!',
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 20,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                      SizedBox(width: 10),
-                      Icon(Icons.star, color: Color(0xFFFFFD71)),
-                    ],
-                  ),
-                ),
-              ),
-            ),
-
-            SizedBox(height: 8),
-
-            // зелений блок
-            Container(
-              width: 300,
-              height: 150,
-              decoration: BoxDecoration(
-                color: Colors.green,
-                borderRadius: BorderRadius.circular(16),
-              ),
-              child: Padding(
-                padding: const EdgeInsets.all(10),
-                child: Align(
-                  alignment: Alignment.bottomRight,
-                  child: Row(
-                    mainAxisSize: MainAxisSize.min,
-                    children: [
-                      Icon(Icons.star, color: Color(0xFFFFFD71)),
-                      SizedBox(width: 10),
-                      Text(
-                        'Привіт, Flutter!',
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 20,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                      SizedBox(width: 10),
-                      Icon(Icons.star, color: Color(0xFFFFFD71)),
-                    ],
-                  ),
-                ),
-              ),
-            ),
-
-            SizedBox(height: 8),
-
-            // червоний блок
-            Container(
-              width: 300,
-              height: 150,
-              decoration: BoxDecoration(
-                color: Colors.red,
-                borderRadius: BorderRadius.circular(16),
-              ),
-              child: Padding(
-                padding: const EdgeInsets.all(10),
-                child: Align(
-                  alignment: Alignment.bottomRight,
-                  child: Row(
-                    mainAxisSize: MainAxisSize.min,
-                    children: [
-                      Icon(Icons.star, color: Color(0xFFFFFD71)),
-                      SizedBox(width: 10),
-                      Text(
-                        'Привіт, Flutter!',
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 20,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                      SizedBox(width: 10),
-                      Icon(Icons.star, color: Color(0xFFFFFD71)),
-                    ],
-                  ),
-                ),
-              ),
-            ),
+//
+            Column(
+              children: [
+                ...items.map((item) {
+                  return Padding(
+                    padding: EdgeInsets.only(bottom: 8),
+                    child: CardItem(
+                      bkColor: item['bkColor'] ?? Colors.grey,
+                    ),
+                  );
+                }),
+              ],
+            ),   
+// 
           ],
+        ),
+      ),
+    );
+  }
+}
+
+class CardItem extends StatelessWidget {
+  const CardItem({
+    required this.bkColor,
+    super.key,
+  });
+  final Color bkColor;
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      width: 300,
+      height: 150,
+      
+      decoration: BoxDecoration(
+        color: bkColor,
+        borderRadius: BorderRadius.circular(16),
+      ),
+              
+      child: Padding(
+        padding: const EdgeInsets.all(10),
+        child: Align(
+          alignment: Alignment.bottomRight,
+          child: Row(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              Icon(Icons.star, color: Color(0xFFFFFD71)),
+              SizedBox(width: 10),
+              Text(
+                'Привіт, Flutter!',
+                style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 20,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+              SizedBox(width: 10),
+              Icon(Icons.star, color: Color(0xFFFFFD71)),
+            ],
+          ),
         ),
       ),
     );

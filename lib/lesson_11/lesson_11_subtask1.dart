@@ -5,16 +5,13 @@ class LessonElevenSubTask1 extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(home: HomeScreen());
-  }
-}
-
-class HomeScreen extends StatelessWidget {
-  const HomeScreen({super.key});
-
-  @override
-  Widget build(BuildContext context) {
     return Scaffold(
+      // app bar
+      appBar: AppBar(
+        title: const Text('Lesson 11 (HW 7) Task1'),
+        backgroundColor: Colors.blue.shade100,
+      ),
+
       body: Center(
         child: Container(
           width: 300,
