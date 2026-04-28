@@ -5,9 +5,7 @@ class LessonElevenSubTask5 extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
-      home: HomeScreen(),
-    );
+    return const HomeScreen();
   }
 }
 
@@ -57,6 +55,11 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      // app bar
+      appBar: AppBar(
+        title: const Text('Lesson 11 (HW 7) Task5'),
+        backgroundColor: Colors.blue.shade100,
+      ),      
       body: Center(
         child: Column(
           children: [
